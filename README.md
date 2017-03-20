@@ -17,6 +17,6 @@ Battery | Li-Ion 3000 mAh battery
 Display | 1440 x 2560 pixels, 5.2 inches (~565 ppi pixel density)
 Camera  | 12 MP, 4000 x 3000 pixels, autofocus, LED flash, OIS
 
-Copyright 2016 - The CyanogenMod Project.
+Copyright 2017 - The HTC Open Source Project.
 
 ![HTC 10](http://cdn2.gsmarena.com/vv/pics/htc/htc-10-5.jpg "HTC 10")
