@@ -29,6 +29,14 @@ ENABLE_CPUSETS := true
 
 ENABLE_SCHEDBOOST := true
 
+USE_CLANG_PLATFORM_BUILD := true
+
+#Enable Peripheral Manager
+TARGET_PER_MGR_ENABLED := true
+
+# Enable build with MSM kernel
+TARGET_COMPILE_WITH_MSM_KERNEL := true
+
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8996
 TARGET_NO_BOOTLOADER := true
@@ -152,6 +160,18 @@ TARGET_POWERHAL_VARIANT := qcom
 # Qualcomm
 BOARD_USES_QCOM_HARDWARE := true
 BOARD_USES_QC_TIME_SERVICES := true
+
+# Enable dex pre-opt to speed up initial boot
+ifeq ($(HOST_OS),linux)
+    ifeq ($(WITH_DEXPREOPT),)
+      WITH_DEXPREOPT := true
+      WITH_DEXPREOPT_PIC := true
+      ifneq ($(TARGET_BUILD_VARIANT),user)
+        # Retain classes.dex in APK's for non-user builds
+        DEX_PREOPT_DEFAULT := nostripping
+      endif
+    endif
+endif
 
 # Recovery
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
